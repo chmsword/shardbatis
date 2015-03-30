@@ -30,14 +30,14 @@ import com.google.code.shardbatis.strategy.ShardStrategy;
 public class ShardConfigParser {
 	private static final Log log = LogFactory.getLog(ShardConfigParser.class);
 
-	private static final String SHARD_CONFIG_DTD = "com/google/code/shardbatis/builder/shardbatis-config.dtd";
+	private static final String SHARDBATIS_CONFIG_DTD = "com/google/code/shardbatis/builder/xml/shardbatis-config.dtd";
 	private static final Map<String, String> DOC_TYPE_MAP = new HashMap<String, String>();
 	static {
 		DOC_TYPE_MAP.put(
 				"http://shardbatis.googlecode.com/dtd/shardbatis-config.dtd"
-						.toLowerCase(), SHARD_CONFIG_DTD);
+						.toLowerCase(), SHARDBATIS_CONFIG_DTD);
 		DOC_TYPE_MAP.put("-//shardbatis.googlecode.com//DTD Shardbatis 2.0//EN"
-				.toLowerCase(), SHARD_CONFIG_DTD);
+				.toLowerCase(), SHARDBATIS_CONFIG_DTD);
 	}
 	
 	/**
@@ -46,8 +46,8 @@ public class ShardConfigParser {
 	 * @return
 	 * @throws Exception
 	 */
-	public ShardConfigHolder parse(InputStream input) throws Exception {
-		final ShardConfigHolder configHolder = ShardConfigHolder
+	public ShardbatisConfig parse(InputStream input) throws Exception {
+		final ShardbatisConfig configHolder = ShardbatisConfig
 				.getInstance();
 
 		SAXParserFactory spf = SAXParserFactory.newInstance();

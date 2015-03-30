@@ -6,7 +6,7 @@ package com.google.code.shardbatis.converter;
 import net.sf.jsqlparser.statement.Statement;
 import net.sf.jsqlparser.util.deparser.StatementDeParser;
 
-import com.google.code.shardbatis.builder.ShardConfigHolder;
+import com.google.code.shardbatis.builder.ShardbatisConfig;
 import com.google.code.shardbatis.strategy.ShardStrategy;
 
 /**
@@ -41,7 +41,7 @@ public abstract class AbstractSqlConverter implements SqlConverter {
 	 */
 	protected String convertTableName(String tableName, Object params,
 			String mapperId) {
-		ShardConfigHolder configFactory = ShardConfigHolder.getInstance();
+		ShardbatisConfig configFactory = ShardbatisConfig.getInstance();
 		ShardStrategy strategy = configFactory.getStrategy(tableName);
 		if (strategy == null) {
 			return tableName;

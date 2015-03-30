@@ -15,7 +15,7 @@ public class ShardConfigParserTest {
 	public void testParse_1() throws Exception{
 		ShardConfigParser parser=new ShardConfigParser();
 		InputStream input= Resources.getResourceAsStream("test_config.xml");
-		ShardConfigHolder factory=parser.parse(input);
+		ShardbatisConfig factory=parser.parse(input);
 		
 		ShardStrategy strategy=factory.getStrategy("test_table1");
 		Assert.assertNotNull(strategy);
@@ -37,7 +37,7 @@ public class ShardConfigParserTest {
 	public void testParse_2() throws Exception{
 		ShardConfigParser parser=new ShardConfigParser();
 		InputStream input= Resources.getResourceAsStream("test_config_2.xml");
-		ShardConfigHolder factory=parser.parse(input);
+		ShardbatisConfig factory=parser.parse(input);
 		
 		ShardStrategy strategy=factory.getStrategy("test_table1");
 		Assert.assertNotNull(strategy);
